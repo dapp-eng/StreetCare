@@ -82,22 +82,22 @@ LabelBase.register(name="Poppins-SemiBold", fn_regular=resource_path("assets/fon
 LabelBase.register(name="Poppins-Medium", fn_regular=resource_path("assets/fonts/Poppins-Medium.ttf"))
 LabelBase.register(name="Poppins-Bold", fn_regular=resource_path("assets/fonts/Poppins-Bold.ttf"))
 
-if platform == 'android':
-    from jnius import autoclass, cast
-    from android import activity
-    from android.permissions import request_permissions, Permission
-    request_permissions([
-        Permission.CAMERA,
-        Permission.RECORD_AUDIO,
-        Permission.READ_EXTERNAL_STORAGE,
-        Permission.WRITE_EXTERNAL_STORAGE
-    ])
+# if platform == 'android':
+#     from jnius import autoclass, cast
+#     from android import activity
+#     from android.permissions import request_permissions, Permission
+#     request_permissions([
+#         Permission.CAMERA,
+#         Permission.RECORD_AUDIO,
+#         Permission.READ_EXTERNAL_STORAGE,
+#         Permission.WRITE_EXTERNAL_STORAGE
+#     ])
     
 def open_video_capture():
-    if platform == 'android':
-        open_video_camera_android()
-    else:
-        open_video_file_desktop()
+    # if platform == 'android':
+    #     open_video_camera_android()
+    # else:
+    open_video_file_desktop()
         
 def open_video_file_desktop():
     file_path = filechooser.open_file(
@@ -107,16 +107,16 @@ def open_video_file_desktop():
         print("Video selected:", file_path[0])
         show_video_in_container(file_path[0])
         
-def open_video_camera_android():
-    PythonActivity = autoclass('org.kivy.android.PythonActivity')
-    Intent = autoclass('android.content.Intent')
-    MediaStore = autoclass('android.provider.MediaStore')
-    currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
-    intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
-    currentActivity.startActivityForResult(intent, 1001)
-    if not hasattr(activity, "_video_result_bound"):
-        activity.bind(on_activity_result=on_video_result)
-        activity._video_result_bound = True
+# def open_video_camera_android():
+#     PythonActivity = autoclass('org.kivy.android.PythonActivity')
+#     Intent = autoclass('android.content.Intent')
+#     MediaStore = autoclass('android.provider.MediaStore')
+#     currentActivity = cast('android.app.Activity', PythonActivity.mActivity)
+#     intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+#     currentActivity.startActivityForResult(intent, 1001)
+#     if not hasattr(activity, "_video_result_bound"):
+#         activity.bind(on_activity_result=on_video_result)
+#         activity._video_result_bound = True
         
 def on_video_result(request_code, result_code, intent):
     if request_code == 1001 and result_code == -1:
@@ -1913,11 +1913,11 @@ class Reports(MDScreen):
             
     def download_pdf_from_url(self, url):
         try:
-            if platform == "android":
-                from android.storage import app_storage_path
-                save_dir = os.path.join(app_storage_path(), "pdf_temp")
-            else:
-                save_dir = os.path.join(os.getcwd(), "pdf_temp")
+            # if platform == "android":
+            #     from android.storage import app_storage_path
+            #     save_dir = os.path.join(app_storage_path(), "pdf_temp")
+            # else:
+            save_dir = os.path.join(os.getcwd(), "pdf_temp")
 
             os.makedirs(save_dir, exist_ok=True)
             filename = f"{uuid.uuid4()}.pdf"
@@ -2031,9 +2031,9 @@ class Reports(MDScreen):
             if response.status_code == 200:
                 if platform == "win":
                     downloads_folder = os.path.join(os.environ["USERPROFILE"], "Downloads")
-                elif platform == "android":
-                    from android.storage import primary_external_storage_path
-                    downloads_folder = os.path.join(primary_external_storage_path(), "Download")
+                # elif platform == "android":
+                #     from android.storage import primary_external_storage_path
+                #     downloads_folder = os.path.join(primary_external_storage_path(), "Download")
                 else:
                     downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
 
