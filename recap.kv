@@ -1,0 +1,273 @@
+<Recap>:
+    name: "recap"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+    
+        Image:
+            source: app.resource_path("assets/bg.png")
+            size_hint: 1, 1
+            allow_stretch: True
+            keep_ratio: False
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDFloatLayout:
+            size_hint: 1, 1
+            pos_hint: {"center_x": .5, "center_y": .5}
+            padding: dp(15)
+            MDCard:
+                style: "elevated"
+                size_hint: .95, None
+                height: dp(55)
+                pos_hint: {"center_x": 0.5, "center_y": 0.92}
+                theme_shadow_color: "Custom"
+                shadow_color: 0.086, 0.098, 0.145, 0.5
+                theme_shadow_offset: "Custom"
+                shadow_offset: (-1, -2)
+                theme_shadow_softness: "Custom"
+                shadow_softness: 2
+                theme_elevation_level: "Custom"
+                elevation_level: 1
+                theme_bg_color: "Custom"
+                radius: [15,]
+                md_bg_color: (1, 1, 1, 1)
+                orientation: "horizontal"
+                focus_color: (0, 0, 0, 0)
+                RelativeLayout:
+                    MDIconButton:
+                        icon: "arrow-left-circle"
+                        theme_font_size: "Custom"
+                        font_size: "31sp"
+                        size_hint: None, None
+                        size: dp(35), dp(35)
+                        theme_text_color: "Custom"
+                        text_color: (0.1, 0.2, 0.4, 1)
+                        pos_hint: {"center_x": 0.085, "center_y": 0.5}
+                        on_release: app.go_back()
+                    MDLabel:
+                        text: "Riwayat Laporan Kerusakan"
+                        pos_hint: {"center_x": .495, "center_y": .625}
+                        theme_text_color: "Custom"
+                        text_color: (0.086, 0.098, 0.145, 1)
+                        theme_font_name: "Custom"
+                        theme_font_size: "Custom"
+                        font_size: "14sp"
+                        font_name: "Poppins-Bold"
+                        halign: "center"
+                    MDLabel:
+                        text: "Jalan"
+                        pos_hint: {"center_x": .495, "center_y": .33}
+                        theme_text_color: "Custom"
+                        text_color: (0.086, 0.098, 0.145, 1)
+                        theme_font_name: "Custom"
+                        theme_font_size: "Custom"
+                        font_size: "14sp"
+                        font_name: "Poppins-Bold"
+                        halign: "center"
+                    Image:
+                        source: app.resource_path("assets/roadr.png")
+                        size_hint: 1, 1
+                        pos_hint: {"center_x": 0.885, "bottom": 1}
+            
+            MDCard:
+                style: "elevated"
+                size_hint: .95, .86
+                pos_hint: {"center_x": 0.5, "bottom": 1}
+                theme_shadow_color: "Custom"
+                shadow_color: 0.086, 0.098, 0.145, 0.5
+                theme_shadow_offset: "Custom"
+                shadow_offset: (-1, -2)
+                theme_shadow_softness: "Custom"
+                shadow_softness: 2
+                theme_elevation_level: "Custom"
+                elevation_level: 1
+                theme_bg_color: "Custom"
+                radius: [dp(15), dp(15), 0, 0]
+                md_bg_color: (1, 1, 1, 1)
+                orientation: "horizontal"
+                focus_color: (0, 0, 0, 0)
+                RelativeLayout:
+                    MDCard:
+                        style: "outlined"
+                        size_hint: .75, .075
+                        pos_hint: {"center_x": 0.435, "center_y": 0.92}
+                        theme_line_color: "Custom"
+                        line_color: (0.1, 0.2, 0.4, 1)
+                        line_width: 1.5
+                        theme_bg_color: "Custom"
+                        md_bg_color: (1, 1, 1, 1)
+                        focus_color: (0, 0, 0, 0)
+                        radius: [dp(20),]
+                        padding: dp(20), dp(20), dp(20), dp(20)
+                        clip: True
+                        MDTextField:
+                            id: search_field
+                            mode: "outlined"
+                            text: "Cari laporan jalan..."
+                            size_hint_x: 1
+                            radius: [25,]
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            theme_text_color: "Custom"
+                            text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                            text_color_focus: (0.1, 0.2, 0.4, 1)
+                            theme_font_name: "Custom"
+                            theme_font_size: "Custom"
+                            font_size: "13sp"
+                            font_name: "Poppins-SemiBold"
+                            theme_line_color: "Custom"
+                            line_color_normal: (0, 0, 0, 0)
+                            line_color_focus: (0, 0, 0, 0)
+                            theme_bg_color: "Custom"
+                            fill_color_normal: (1, 1, 1, 0)
+                            fill_color_focus: (1, 1, 1, 0)
+                            on_focus: root.update_text(self.focus)
+                            on_text_validate: root.search_reports(self.text)
+                        MDIconButton:
+                            id: search
+                            icon: "magnify"
+                            theme_font_size: "Custom"
+                            font_size: "25sp"
+                            theme_icon_color: "Custom"
+                            icon_color: (0.1, 0.2, 0.4, 1)
+                            pos_hint: {"center_x": .915, "center_y": .5}
+                            on_release: root.search_reports(search_field.text)
+                    MDIconButton:
+                        id: filter
+                        icon: "filter-variant"
+                        theme_font_size: "Custom"
+                        font_size: "30sp"
+                        theme_icon_color: "Custom"
+                        icon_color: (0.1, 0.2, 0.4, 1)
+                        pos_hint: {"center_x": .9, "center_y": .925}
+                        on_release: root.ids.filter_drawer.set_state("open")
+                
+                    ScrollView:
+                        id: scrollview
+                        effect_cls: "ScrollEffect"
+                        size_hint: .925, .805
+                        pos_hint: {"center_x": 0.5, "center_y": .445}
+                        MDBoxLayout:
+                            id: report_list
+                            orientation: "vertical"
+                            padding: dp(10)
+                            spacing: dp(10)
+                            adaptive_height: True
+                            opacity: 1
+            
+            MDFabButton:
+                id: admin_status
+                icon: "database-edit"
+                theme_icon_color: "Custom"
+                icon_color: 1, 1, 1, 1
+                theme_font_size: "Custom"
+                font_size: "30sp"
+                theme_bg_color: "Custom"
+                md_bg_color: 0.1, 0.2, 0.4, 1
+                pos_hint: {"center_x": 0.795, "center_y": 0.12}
+                theme_shadow_color: "Custom"
+                shadow_color: 0, 0, 0, 0
+                radius: dp(35)
+                size_hint: None, None
+                size: dp(62), dp(62)
+                on_release: app.change_screen("adminstat", "fade")
+                opacity: 1 if app.admin_data else 0
+                disabled: False if app.admin_data else True
+                    
+            MDNavigationDrawer:
+                id: filter_drawer
+                anchor: "right"
+                elevation: 10
+                padding: dp(15)
+                radius: [dp(5),]
+                background_color: (1, 1, 1, 1)
+                size_hint_x: .5
+                RelativeLayout:
+                    MDLabel:
+                        text: "Urutkan Berdasarkan"
+                        pos_hint: {"left": 1, "center_y": .905}
+                        theme_text_color: "Custom"
+                        text_color: (0.1, 0.2, 0.4, 1)
+                        theme_font_name: "Custom"
+                        theme_font_size: "Custom"
+                        font_size: "14sp"
+                        font_name: "Poppins-Bold"
+
+                    MDCheckbox:
+                        id: status_asc
+                        group: "sort"
+                        on_active: app.toggle_filter("status_asc", self.active)
+                        pos_hint: {"left": 1, "center_y": .8}
+                    MDLabel:
+                        text: "Status Menaik"
+                        pos_hint: {"center_x": .7, "center_y": .795}
+                        theme_text_color: "Custom"
+                        text_color: (0.1, 0.2, 0.4, 1)
+                        theme_font_name: "Custom"
+                        theme_font_size: "Custom"
+                        font_size: "13sp"
+                        font_name: "Poppins-SemiBold"
+                        halign: "left"
+                    
+                    MDCheckbox:
+                        id: status_desc
+                        group: "sort"
+                        on_active: app.toggle_filter("status_desc", self.active)
+                        pos_hint: {"left": 1, "center_y": .725}
+                    MDLabel:
+                        text: "Status Menurun"
+                        pos_hint: {"center_x": .7, "center_y": .72}
+                        theme_text_color: "Custom"
+                        text_color: (0.1, 0.2, 0.4, 1)
+                        theme_font_name: "Custom"
+                        theme_font_size: "Custom"
+                        font_size: "13sp"
+                        font_name: "Poppins-SemiBold"
+                        halign: "left"
+
+                    MDCheckbox:
+                        id: kecelakaan_cb
+                        group: "sort"
+                        on_active: app.toggle_filter("kecelakaan", self.active)
+                        pos_hint: {"left": 1, "center_y": .65}
+                    MDLabel:
+                        text: "Kecelakaan"
+                        pos_hint: {"center_x": .7, "center_y": .645}
+                        theme_text_color: "Custom"
+                        text_color: (0.1, 0.2, 0.4, 1)
+                        theme_font_name: "Custom"
+                        theme_font_size: "Custom"
+                        font_size: "13sp"
+                        font_name: "Poppins-SemiBold"
+                        halign: "left"
+
+                    MDCheckbox:
+                        id: pelaporan_cb
+                        group: "sort"
+                        on_active: app.toggle_filter("pelaporan", self.active)
+                        pos_hint: {"left": 1, "center_y": .575}
+                    MDLabel:
+                        text: "Pelaporan"
+                        pos_hint: {"center_x": .7, "center_y": .57}
+                        theme_text_color: "Custom"
+                        text_color: (0.1, 0.2, 0.4, 1)
+                        theme_font_name: "Custom"
+                        theme_font_size: "Custom"
+                        font_size: "13sp"
+                        font_name: "Poppins-SemiBold"
+                        halign: "left"
+
+                    MDButton:
+                        pos_hint: {"center_x": .375, "center_y": .15}
+                        theme_bg_color: "Custom"
+                        md_bg_color: (0.1, 0.2, 0.4, 1)
+                        on_release:
+                            app.apply_drawer_sort()
+                            root.ids.filter_drawer.set_state("close")
+                        MDButtonText:
+                            text: "Terapkan"
+                            theme_text_color: "Custom"
+                            text_color: (1, 1, 1, 1)
+                            theme_font_name: "Custom"
+                            theme_font_size: "Custom"
+                            font_size: "13sp"
+                            font_name: "Poppins-SemiBold"
+                                

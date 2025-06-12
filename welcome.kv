@@ -1,0 +1,70 @@
+<Welcome>:
+    name: "welcome"
+    MDFloatLayout:
+        md_bg_color: 0.137, 0.224, 0.357, 1
+    
+        Image:
+            source: app.resource_path("assets/bg2.png")
+            size_hint: 1, 1
+            allow_stretch: True
+            keep_ratio: True
+            pos_hint: {"center_x": .5, "center_y": .5}
+        Image:
+            source: app.resource_path("assets/well.png")
+            size_hint: None, None
+            size: dp(225), dp(225)
+            allow_stretch: True
+            keep_ratio: True
+            pos_hint: {"center_x": .5, "center_y": .655}
+        Image:
+            source: app.resource_path("assets/iconrw.png")
+            size_hint: None, None
+            size: dp(95), dp(95)
+            allow_stretch: True
+            keep_ratio: True
+            pos_hint: {"center_x": .81, "center_y": .885}
+        
+        MDLabel:
+            text: "W E L C O M E !"
+            pos_hint: {"center_x": 0.5, "center_y": 0.435}
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            theme_font_size: "Custom"
+            font_size: "25sp"
+            halign: "center"
+            theme_font_name: "Custom"
+            font_name: "Poppins-Bold"
+        MDLabel:
+            text: "StreetCare merupakan aplikasi yang memungkinkan Anda untuk berkontribusi dalam perbaikan infrastruktur jalan di wilayah Gresik dan sekitarnya."
+            pos_hint: {"center_x": 0.5, "center_y": 0.34}
+            size_hint_x: .8
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            theme_font_size: "Custom"
+            font_size: "11.5sp"
+            halign: "center"
+            theme_font_name: "Custom"
+            font_name: "Poppins-Regular"
+        
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": .5, "center_y": .22}
+            theme_bg_color: "Custom"
+            md_bg_color: (1, 1, 1, 1)
+            size_hint: None, None
+            size: dp(160), dp(45)
+            radius: dp(10)
+            on_release: app.change_screen("login", "rise")
+            MDButtonText:
+                text: "GET STARTED >>"
+                theme_text_color: "Custom"
+                text_color: (0.1, 0.2, 0.4, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "16sp"
+                font_name: "Poppins-Bold"
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+        
+
+

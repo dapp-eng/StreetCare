@@ -1,0 +1,19 @@
+<Splash>:
+    name: "splash"
+    MDFloatLayout:
+        md_bg_color: 0.137, 0.224, 0.357, 1
+
+        Image:
+            source: app.resource_path("assets/splash2.png")
+            size_hint: 1, 1
+            allow_stretch: True
+            keep_ratio: True
+            pos_hint: {"center_x": .5, "center_y": .5}
+        Video:
+            source: app.resource_path("assets/splash1.gif")
+            anim_delay: 0.035
+            size_hint: .6, .6
+            allow_stretch: True
+            keep_ratio: True
+            pos_hint: {"center_x": .5, "center_y": .615}
+            

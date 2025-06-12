@@ -1,0 +1,181 @@
+<Maps>:
+    name: "maps"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDFloatLayout:     
+            id: map_container
+            size_hint: 1, 1
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+        RelativeLayout:
+            Image:
+                source: app.resource_path("assets/iconr.png")
+                size_hint: None, None
+                size: dp(85), dp(85)
+                pos_hint: {"center_x": .835, "center_y": .145}
+
+            MDCard:
+                style: "elevated"
+                size_hint: .925, .07
+                pos_hint: {"center_x": 0.5, "center_y": 0.945}
+                theme_shadow_color: "Custom"
+                shadow_color: 0.086, 0.098, 0.145, 0.5
+                theme_shadow_offset: "Custom"
+                shadow_offset: (-1, -2)
+                theme_shadow_softness: "Custom"
+                shadow_softness: 2
+                theme_elevation_level: "Custom"
+                elevation_level: 3
+                theme_bg_color: "Custom"
+                radius: [dp(20),]
+                padding: dp(20), dp(20), dp(20), dp(20)
+                md_bg_color: (1, 1, 1, 1)
+                focus_color: (0, 0, 0, 0)
+                clip: True
+                MDTextField:
+                    id: search_field
+                    mode: "outlined"
+                    text: "Cari laporan jalan..."
+                    size_hint_x: 1
+                    radius: [25,]
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    theme_text_color: "Custom"
+                    text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                    text_color_focus: (0.1, 0.2, 0.4, 1)
+                    theme_font_name: "Custom"
+                    theme_font_size: "Custom"
+                    font_size: "13sp"
+                    font_name: "Poppins-SemiBold"
+                    theme_line_color: "Custom"
+                    line_color_normal: (0, 0, 0, 0)
+                    line_color_focus: (0, 0, 0, 0)
+                    theme_bg_color: "Custom"
+                    fill_color_normal: (1, 1, 1, 0)
+                    fill_color_focus: (1, 1, 1, 0)
+                    on_focus: root.update_text(self.focus)
+                    on_text_validate: root.search_by_street_name(self.text)
+                MDIconButton:
+                    id: search
+                    icon: "magnify"
+                    theme_font_size: "Custom"
+                    font_size: "25sp"
+                    theme_icon_color: "Custom"
+                    icon_color: (0.1, 0.2, 0.4, 1)
+                    pos_hint: {"center_x": .9, "center_y": .5}
+                    on_release: root.search_by_street_name(search_field.text)
+
+            MDFabButton:
+                id: gps_btn
+                icon: "crosshairs-gps"
+                theme_icon_color: "Custom"
+                icon_color: 0.1, 0.2, 0.4, 1
+                theme_bg_color: "Custom"
+                md_bg_color: 1, 1, 1, 0.9
+                theme_font_size: "Custom"
+                font_size: "25sp"
+                pos_hint: {"center_x": 0.875, "center_y": 0.855}
+                theme_shadow_color: "Custom"
+                shadow_color: 0, 0, 0, 0
+                radius: 10
+                size_hint: None, None
+                size: dp(50), dp(42)
+                on_release: app.recenter_map()
+            
+            Image:
+                source: app.resource_path("assets/keterangan.png")
+                size_hint: .4, .4
+                pos_hint: {"center_x": .245, "center_y": .255}
+
+    MDFloatLayout:
+        id: bottom_nav
+        size_hint_y: 0.1
+        pos_hint: {"center_x": 0.5, "y": 0}
+        md_bg_color: 0.1, 0.2, 0.4, 1
+        padding: "10dp"
+        spacing: "18dp"
+        orientation: "horizontal"
+
+        MDIconButton:
+            icon: "home"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            theme_font_size: "Custom"
+            font_size: "28sp"
+            pos_hint: {"center_x": 0.1, "center_y": 0.55}
+            on_release: app.change_screen("home", "fade")
+
+        MDFloatLayout:
+            size_hint: None, None
+            size: dp(60), dp(60)
+            pos_hint: {"center_x": 0.275, "center_y": 0.825}
+            MDFabButton:
+                icon: "map"
+                theme_icon_color: "Custom"
+                icon_color: 1, 1, 1, 1
+                theme_bg_color: "Custom"
+                md_bg_color: 0.1, 0.2, 0.4, 1
+                theme_font_size: "Custom"
+                font_size: "28sp"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                theme_shadow_color: "Custom"
+                shadow_color: 0, 0, 0, 0
+                radius: 45
+                size_hint: None, None
+                size: dp(60), dp(60)
+        MDLabel:
+            text: "Maps"
+            pos_hint: {"center_x": 0.275, "center_y": 0.45}
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            theme_font_size: "Custom"
+            font_size: "10sp"
+            halign: "center"
+            theme_font_name: "Custom"
+            font_name: "Poppins-SemiBold"
+        
+        MDFloatLayout:
+            size_hint: None, None
+            size: dp(80), dp(80)
+            pos_hint: {"center_x": 0.5, "center_y": 0.995}
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+                    angle_start: 90
+                    angle_end: 270
+            MDFabButton:
+                icon: "camera-outline"
+                theme_icon_color: "Custom"
+                icon_color: 1, 1, 1, 1
+                theme_bg_color: "Custom"
+                md_bg_color: 0.1, 0.2, 0.4, 1
+                theme_font_size: "Custom"
+                font_size: "38sp"
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                theme_shadow_color: "Custom"
+                shadow_color: 0, 0, 0, 0
+                radius: 45
+                size_hint: None, None
+                size: dp(71), dp(71)
+                on_release: app.open_video_capture()
+
+        MDIconButton:
+            icon: "file-document-outline"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            theme_font_size: "Custom"
+            font_size: "28sp"
+            pos_hint: {"center_x": 0.725, "center_y": 0.55}
+            on_release: app.change_screen("reports", "fade")
+        
+        MDIconButton:
+            icon: "account"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            theme_font_size: "Custom"
+            font_size: "28sp"
+            pos_hint: {"center_x": 0.9, "center_y": 0.55}
+            on_release: app.change_screen("profil", "fade")

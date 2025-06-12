@@ -1,0 +1,582 @@
+<Adminreport>:
+    name: "adminreport"
+    MDFloatLayout:
+        md_bg_color: 0.137, 0.224, 0.357, 1
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            size_hint: 1, .825
+            pos_hint: {"center_x": .5, "center_y": .54}
+            bar_width: 2
+            effect_cls: "ScrollEffect"
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: dp(15)
+                spacing: dp(15)
+                MDCard:
+                    style: "elevated"
+                    size_hint: .98, None
+                    height: dp(48)
+                    theme_shadow_color: "Custom"
+                    shadow_color: 0.086, 0.098, 0.145, 0.5
+                    theme_shadow_offset: "Custom"
+                    shadow_offset: (-1, -2)
+                    theme_shadow_softness: "Custom"
+                    shadow_softness: 2
+                    theme_elevation_level: "Custom"
+                    elevation_level: 1
+                    theme_bg_color: "Custom"
+                    radius: [15,]
+                    md_bg_color: (1, 1, 1, 1)
+                    orientation: "horizontal"
+                    focus_color: (0, 0, 0, 0)
+                    RelativeLayout:
+                        MDLabel:
+                            text: "Unggah Laporan Dana Perbaikan"
+                            pos_hint: {"center_x": .475, "center_y": .5}
+                            theme_text_color: "Custom"
+                            text_color: (0.086, 0.098, 0.145, 1)
+                            theme_font_name: "Custom"
+                            theme_font_size: "Custom"
+                            font_size: "14sp"
+                            font_name: "Poppins-Bold"
+                            halign: "center"
+                        Image:
+                            source: app.resource_path("assets/reports.png")
+                            size_hint: 1, 1
+                            pos_hint: {"center_x": 0.885, "center_y": 0.5}
+                
+                MDCard:
+                    style: "elevated"
+                    size_hint: .98, None
+                    height: dp(100)
+                    theme_shadow_color: "Custom"
+                    shadow_color: 0.086, 0.098, 0.145, 0.5
+                    theme_shadow_offset: "Custom"
+                    shadow_offset: (-1, -2)
+                    theme_shadow_softness: "Custom"
+                    shadow_softness: 2
+                    theme_elevation_level: "Custom"
+                    elevation_level: 1
+                    theme_bg_color: "Custom"
+                    radius: [15,]
+                    md_bg_color: (1, 1, 1, 1)
+                    orientation: "horizontal"
+                    focus_color: (0, 0, 0, 0)
+                    RelativeLayout:
+                        MDLabel:
+                            text: "NOTE:"
+                            pos_hint: {"center_x": .5, "center_y": .795}
+                            theme_text_color: "Custom"
+                            text_color: (0.086, 0.098, 0.145, 1)
+                            theme_font_name: "Custom"
+                            theme_font_size: "Custom"
+                            font_size: "14sp"
+                            font_name: "Poppins-SemiBold"
+                            halign: "center"
+                        MDLabel:
+                            text: "Untuk memperbarui laporan, masukkan nama jalan lalu klik 'Cek Jalan' untuk memuat data sebelumnya."
+                            pos_hint: {"center_x": .5, "center_y": .4}
+                            theme_text_color: "Custom"
+                            size_hint_x: .85
+                            text_color: (0.1, 0.2, 0.4, 1)
+                            theme_font_name: "Custom"
+                            theme_font_size: "Custom"
+                            font_size: "11.5sp"
+                            font_name: "Poppins-Medium"
+                            halign: "center"
+
+                MDCard:
+                    style: "elevated"
+                    size_hint: .98, None
+                    height: dp(700)
+                    theme_shadow_color: "Custom"
+                    shadow_color: 0.086, 0.098, 0.145, 0.5
+                    theme_shadow_offset: "Custom"
+                    shadow_offset: (-1, -2)
+                    theme_shadow_softness: "Custom"
+                    shadow_softness: 2
+                    theme_elevation_level: "Custom"
+                    elevation_level: 1
+                    theme_bg_color: "Custom"
+                    radius: [15,]
+                    spacing: dp(10)
+                    md_bg_color: (1, 1, 1, 1)
+                    padding: [dp(15),]
+                    orientation: "horizontal"
+                    focus_color: (0, 0, 0, 0) 
+                    RelativeLayout:
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(2)
+                            size_hint_x: 1
+                            pos_hint: {"center_x": .5, "center_y": .935}
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Nama Jalan"
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 1)
+                                theme_font_size: "Custom"
+                                font_size: "11sp"
+                                halign: "left"
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                size_hint_x: None
+                                width: dp(300)
+                                padding: [dp(19), 0]
+                            MDCard:
+                                id: jalan_card
+                                style: "outlined"
+                                size_hint: .87, None
+                                height: dp(50)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.7}
+                                theme_line_color: "Custom"
+                                line_color: (0.1, 0.2, 0.4, 1)
+                                line_width: 1.5
+                                theme_bg_color: "Custom"
+                                radius: [dp(10),]
+                                padding: [dp(12),]
+                                md_bg_color: (1, 1, 1, 1)
+                                focus_color: (0, 0, 0, 0)
+                                clip: True
+                                MDIcon:
+                                    id: jalan_icon
+                                    icon: "road"
+                                    theme_icon_color: "Custom"
+                                    icon_color: (0.1, 0.2, 0.4, 1)
+                                    pos_hint: {"center_x": 0.2, "center_y": 0.5}
+                                    theme_font_size: "Custom"
+                                    font_size: "23sp"
+                                MDTextField:
+                                    id: jalan
+                                    mode: "outlined"
+                                    text: "Masukkan nama jalan"
+                                    size_hint_x: 1
+                                    radius: [dp(10),]
+                                    pos_hint: {"center_x": .5, "center_y": .465}
+                                    theme_text_color: "Custom"
+                                    text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                                    text_color_focus: (0.1, 0.2, 0.4, 1)
+                                    theme_font_name: "Custom"
+                                    theme_font_size: "Custom"
+                                    font_size: "13.5sp"
+                                    font_name: "Poppins-Regular"
+                                    theme_line_color: "Custom"
+                                    line_color_normal: (0, 0, 0, 0)
+                                    line_color_focus: (0, 0, 0, 0)
+                                    theme_bg_color: "Custom"
+                                    fill_color_normal: (1, 1, 1, 0)
+                                    fill_color_focus: (1, 1, 1, 0)
+                                    on_focus: root.update_text(self, self.focus, "Masukkan nama jalan")
+                                    on_text: self.error = False 
+                            MDLabel:
+                                id: cek_jalan
+                                text: "[u]Cek Jalan[/u]"
+                                markup: True
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 1)
+                                theme_font_size: "Custom"
+                                font_size: "11.5sp"
+                                halign: "left"
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                size_hint_x: None
+                                adaptive_size: True
+                                shorten: True
+                                padding: [dp(19), 0]
+                                on_touch_down: 
+                                    if self.collide_point(*args[1].pos): root.cek_nama_jalan()
+                        
+                        MDLabel:
+                            text: "- DATA PROYEK -"
+                            pos_hint: {"center_x": .5, "center_y": .825}
+                            theme_text_color: "Custom"
+                            text_color: (0.1, 0.2, 0.4, 1)
+                            theme_font_name: "Custom"
+                            theme_font_size: "Custom"
+                            font_size: "14sp"
+                            font_name: "Poppins-SemiBold"
+                            halign: "center"
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(2)
+                            size_hint_x: 1
+                            pos_hint: {"center_x": .5, "center_y": .745}
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Periode Proyek"
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 1)
+                                theme_font_size: "Custom"
+                                font_size: "11sp"
+                                halign: "left"
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                size_hint_x: None
+                                width: dp(300)
+                                padding: [dp(19), 0]
+                            MDCard:
+                                id: periode_card
+                                style: "outlined"
+                                size_hint: .87, None
+                                height: dp(50)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.7}
+                                theme_line_color: "Custom"
+                                line_color: (0.1, 0.2, 0.4, 1)
+                                line_width: 1.5
+                                theme_bg_color: "Custom"
+                                radius: [dp(10),]
+                                padding: [dp(12),]
+                                md_bg_color: (1, 1, 1, 1)
+                                focus_color: (0, 0, 0, 0)
+                                clip: True
+                                MDIcon:
+                                    id: periode_icon
+                                    icon: "calendar"
+                                    theme_icon_color: "Custom"
+                                    icon_color: (0.1, 0.2, 0.4, 1)
+                                    pos_hint: {"center_x": 0.2, "center_y": 0.5}
+                                    theme_font_size: "Custom"
+                                    font_size: "23sp"
+                                MDTextField:
+                                    id: periode
+                                    mode: "outlined"
+                                    text: "Masukkan periode proyek"
+                                    size_hint_x: 1
+                                    radius: [dp(10),]
+                                    pos_hint: {"center_x": .5, "center_y": .465}
+                                    theme_text_color: "Custom"
+                                    text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                                    text_color_focus: (0.1, 0.2, 0.4, 1)
+                                    theme_font_name: "Custom"
+                                    theme_font_size: "Custom"
+                                    font_size: "13.5sp"
+                                    font_name: "Poppins-Regular"
+                                    theme_line_color: "Custom"
+                                    line_color_normal: (0, 0, 0, 0)
+                                    line_color_focus: (0, 0, 0, 0)
+                                    theme_bg_color: "Custom"
+                                    fill_color_normal: (1, 1, 1, 0)
+                                    fill_color_focus: (1, 1, 1, 0)
+                                    readonly: True
+                                    on_focus: if self.focus: root.show_date_picker()
+                                    on_text: self.error = False
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(2)
+                            size_hint_x: 1
+                            pos_hint: {"center_x": .5, "center_y": .62}
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Total Rancangan Dana (Rp)"
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 1)
+                                theme_font_size: "Custom"
+                                font_size: "11sp"
+                                halign: "left"
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                size_hint_x: None
+                                width: dp(300)
+                                padding: [dp(19), 0]
+                            MDCard:
+                                id: rd_card
+                                style: "outlined"
+                                size_hint: .87, None
+                                height: dp(50)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.7}
+                                theme_line_color: "Custom"
+                                line_color: (0.1, 0.2, 0.4, 1)
+                                line_width: 1.5
+                                theme_bg_color: "Custom"
+                                radius: [dp(10),]
+                                padding: [dp(12),]
+                                md_bg_color: (1, 1, 1, 1)
+                                focus_color: (0, 0, 0, 0)
+                                clip: True
+                                MDIcon:
+                                    id: rd_icon
+                                    icon: "cash"
+                                    theme_icon_color: "Custom"
+                                    icon_color: (0.1, 0.2, 0.4, 1)
+                                    pos_hint: {"center_x": 0.2, "center_y": 0.5}
+                                    theme_font_size: "Custom"
+                                    font_size: "23sp"
+                                MDTextField:
+                                    id: rd
+                                    mode: "outlined"
+                                    text: "Masukkan total rancangan dana"
+                                    size_hint_x: 1
+                                    radius: [dp(10),]
+                                    pos_hint: {"center_x": .5, "center_y": .465}
+                                    theme_text_color: "Custom"
+                                    text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                                    text_color_focus: (0.1, 0.2, 0.4, 1)
+                                    theme_font_name: "Custom"
+                                    theme_font_size: "Custom"
+                                    font_size: "13.5sp"
+                                    font_name: "Poppins-Regular"
+                                    theme_line_color: "Custom"
+                                    line_color_normal: (0, 0, 0, 0)
+                                    line_color_focus: (0, 0, 0, 0)
+                                    theme_bg_color: "Custom"
+                                    fill_color_normal: (1, 1, 1, 0)
+                                    fill_color_focus: (1, 1, 1, 0)
+                                    on_focus: root.update_text(self, self.focus, "Masukkan total rancangan dana")
+                                    on_text: self.text = root.format_rupiah(self.text)
+                                    on_text: self.error = False
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(2)
+                            size_hint_x: 1
+                            pos_hint: {"center_x": .5, "center_y": .49}
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Laporan Rancangan Dana (PDF)"
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 1)
+                                theme_font_size: "Custom"
+                                font_size: "11sp"
+                                halign: "left"
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                size_hint_x: None
+                                width: dp(300)
+                                padding: [dp(19), 0]
+                            MDCard:
+                                id: pdf_card1
+                                style: "outlined"
+                                size_hint: .87, None
+                                height: dp(55)
+                                radius: [dp(2),]
+                                pos_hint: {"center_x": .5}
+                                theme_line_color: "Custom"
+                                line_color: (0.1, 0.2, 0.4, 1)
+                                line_width: 1.5
+                                theme_bg_color: "Custom"
+                                md_bg_color: (1, 1, 1, 1)
+                                focus_color: (0, 0, 0, 0)
+                                clip: True
+                                on_release: root.open_filechooser('pdf_card1')
+                                RelativeLayout:
+                                    MDIcon:
+                                        id: upload_icon1
+                                        icon: "upload"
+                                        theme_icon_color: "Custom"
+                                        icon_color: (0.1, 0.2, 0.4, 1)
+                                        theme_font_size: "Custom"
+                                        font_size: "25sp"
+                                        pos_hint: {"center_x": 0.315, "center_y": 0.5}
+                                    MDLabel:
+                                        text: "Unggah PDF"
+                                        pos_hint: {"center_x": 0.545, "center_y": 0.47}
+                                        theme_text_color: "Custom"
+                                        text_color: (0.1, 0.2, 0.4, 1)
+                                        theme_font_size: "Custom"
+                                        font_size: "12sp"
+                                        halign: "center"
+                                        theme_font_name: "Custom"
+                                        font_name: "Poppins-SemiBold"   
+                        
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(2)
+                            size_hint_x: 1
+                            pos_hint: {"center_x": .5, "center_y": .36}
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Total Akhir Dana (Rp) - Jika status 'Selesai'"
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 1)
+                                theme_font_size: "Custom"
+                                font_size: "11sp"
+                                halign: "left"
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                size_hint_x: None
+                                width: dp(300)
+                                padding: [dp(19), 0]
+                            MDCard:
+                                id: ad_card
+                                style: "outlined"
+                                size_hint: .87, None
+                                height: dp(50)
+                                pos_hint: {"center_x": 0.5, "center_y": 0.7}
+                                theme_line_color: "Custom"
+                                line_color: (0.1, 0.2, 0.4, 1)
+                                line_width: 1.5
+                                theme_bg_color: "Custom"
+                                radius: [dp(10),]
+                                padding: [dp(12),]
+                                md_bg_color: (1, 1, 1, 1)
+                                focus_color: (0, 0, 0, 0)
+                                clip: True
+                                MDIcon:
+                                    id: ad_icon
+                                    icon: "cash-multiple"
+                                    theme_icon_color: "Custom"
+                                    icon_color: (0.1, 0.2, 0.4, 1)
+                                    pos_hint: {"center_x": 0.2, "center_y": 0.5}
+                                    theme_font_size: "Custom"
+                                    font_size: "23sp"
+                                MDTextField:
+                                    id: ad
+                                    mode: "outlined"
+                                    text: "Masukkan total akhir dana"
+                                    size_hint_x: 1
+                                    radius: [dp(10),]
+                                    pos_hint: {"center_x": .5, "center_y": .465}
+                                    theme_text_color: "Custom"
+                                    text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                                    text_color_focus: (0.1, 0.2, 0.4, 1)
+                                    theme_font_name: "Custom"
+                                    theme_font_size: "Custom"
+                                    font_size: "13.5sp"
+                                    font_name: "Poppins-Regular"
+                                    theme_line_color: "Custom"
+                                    line_color_normal: (0, 0, 0, 0)
+                                    line_color_focus: (0, 0, 0, 0)
+                                    theme_bg_color: "Custom"
+                                    fill_color_normal: (1, 1, 1, 0)
+                                    fill_color_focus: (1, 1, 1, 0)
+                                    on_focus: root.update_text(self, self.focus, "Masukkan total akhir dana")
+                                    on_text: self.text = root.format_rupiah(self.text)
+                                    on_text: self.error = False
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: dp(2)
+                            size_hint_x: 1
+                            pos_hint: {"center_x": .5, "center_y": .22}
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Laporan Akhir Dana (PDF) - Jika status 'Selesai'"
+                                size_hint_y: None
+                                height: self.texture_size[1]
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 1)
+                                theme_font_size: "Custom"
+                                font_size: "11sp"
+                                halign: "left"
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                size_hint_x: None
+                                width: dp(300)
+                                padding: [dp(19), 0]
+                            MDCard:
+                                id: pdf_card2
+                                style: "outlined"
+                                size_hint: .87, None
+                                height: dp(55)
+                                radius: [dp(2),]
+                                pos_hint: {"center_x": .5}
+                                theme_line_color: "Custom"
+                                line_color: (0.1, 0.2, 0.4, 1)
+                                line_width: 1.5
+                                theme_bg_color: "Custom"
+                                md_bg_color: (1, 1, 1, 1)
+                                focus_color: (0, 0, 0, 0)
+                                clip: True
+                                on_release: root.open_filechooser('pdf_card2')
+                                RelativeLayout:
+                                    MDIcon:
+                                        id: upload_icon2
+                                        icon: "upload"
+                                        theme_icon_color: "Custom"
+                                        icon_color: (0.1, 0.2, 0.4, 1)
+                                        theme_font_size: "Custom"
+                                        font_size: "25sp"
+                                        pos_hint: {"center_x": 0.315, "center_y": 0.5}
+                                    MDLabel:
+                                        text: "Unggah PDF"
+                                        pos_hint: {"center_x": 0.545, "center_y": 0.47}
+                                        theme_text_color: "Custom"
+                                        text_color: (0.1, 0.2, 0.4, 1)
+                                        theme_font_size: "Custom"
+                                        font_size: "12sp"
+                                        halign: "center"
+                                        theme_font_name: "Custom"
+                                        font_name: "Poppins-SemiBold"
+                
+                        MDLabel:
+                            text: "'Seluruh data yang dimasukkan harus AKURAT dan LENGKAP untuk menghindari kesalahan laporan.'"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.065}
+                            size_hint_x: .895
+                            theme_text_color: "Custom"
+                            text_color: (0.1, 0.2, 0.4, 1)
+                            theme_font_size: "Custom"
+                            font_size: "13sp"
+                            halign: "center"
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-SemiBold"
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(7)
+        
+        MDButton:
+            style: "outlined"
+            pos_hint: {"center_x": .225, "center_y": .065}
+            theme_bg_color: "Custom"
+            md_bg_color: (1, 1, 1, 0)
+            theme_line_color: "Custom"
+            line_color: (1, 1, 1, 1)
+            size_hint: None, None
+            size: dp(135), dp(40)
+            line_width: 2
+            radius: dp(20)
+            on_release: app.go_back()
+            MDButtonText:
+                text: "BACK"
+                theme_text_color: "Custom"
+                text_color: (1, 1, 1, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "16sp"
+                font_name: "Poppins-Bold"
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": .75, "center_y": .065}
+            theme_bg_color: "Custom"
+            md_bg_color: (1, 1, 1, 1)
+            size_hint: None, None
+            size: dp(135), dp(40)
+            radius: dp(20)
+            on_release: root.kirim_laporan_dana()
+            MDButtonText:
+                text: "SUBMIT"
+                theme_text_color: "Custom"
+                text_color: (0.1, 0.2, 0.4, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "16sp"
+                font_name: "Poppins-Bold"
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+            

@@ -1,0 +1,408 @@
+<Streetreport>:
+    name: "streetreport"
+    MDFloatLayout:
+        md_bg_color: 0.137, 0.224, 0.357, 1
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+            size_hint: 1, .825
+            pos_hint: {"center_x": .5, "center_y": .54}
+            bar_width: 2
+            effect_cls: "ScrollEffect"
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: dp(15)
+                spacing: dp(10)
+                MDCard:
+                    style: "elevated"
+                    size_hint: .98, None
+                    height: dp(175)
+                    theme_shadow_color: "Custom"
+                    shadow_color: 0.086, 0.098, 0.145, 0.5
+                    theme_shadow_offset: "Custom"
+                    shadow_offset: (-1, -2)
+                    theme_shadow_softness: "Custom"
+                    shadow_softness: 2
+                    theme_elevation_level: "Custom"
+                    elevation_level: 1
+                    theme_bg_color: "Custom"
+                    radius: [15,]
+                    spacing: dp(10)
+                    md_bg_color: (1, 1, 1, 1)
+                    padding: [dp(15),]
+                    orientation: "horizontal"
+                    focus_color: (0, 0, 0, 0)
+                    MDFloatLayout:
+                        id: thumbnail
+                        size_hint_x: .425
+                        theme_bg_color: "Custom"
+                        md_bg_color: (0, 0, 0, 1)
+                        pos_hint: {"left": .5, "center_y": .5}
+                        radius: dp(15)
+                        padding: [dp(3),]
+                    RelativeLayout:
+                        spacing: dp(4)
+                        size_hint_x: 0.675
+                        pos_hint: {"center_y": 0.5}
+                        MDLabel:
+                            text: "Buat Laporan"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.895}
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.2, 0.4, 1
+                            theme_font_size: "Custom"
+                            font_size: "17sp"
+                            halign: "left"
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-Bold"
+                        MDLabel:
+                            id: duration
+                            text: "Durasi: "
+                            pos_hint: {"center_x": 0.5, "center_y": 0.715}
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.2, 0.4, 1
+                            theme_font_size: "Custom"
+                            font_size: "13sp"
+                            halign: "left"
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-SemiBold"
+                        MDLabel:
+                            text: "Alamat jalan: "
+                            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.2, 0.4, 1
+                            theme_font_size: "Custom"
+                            font_size: "13sp"
+                            halign: "left"
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-Medium"
+                        MDCard:
+                            id: location_card
+                            style: "outlined"
+                            size_hint: 1, None
+                            height: dp(65)
+                            pos_hint: {"center_x": 0.5, "center_y": .245}
+                            theme_line_color: "Custom"
+                            line_color: (0.1, 0.2, 0.4, 1)
+                            line_width: 1.5
+                            theme_bg_color: "Custom"
+                            radius: [dp(10),]
+                            padding: [dp(8),]
+                            md_bg_color: (1, 1, 1, 0)
+                            focus_color: (0, 0, 0, 0)
+                            clip: True
+                            TextInput:
+                                id: location
+                                text: "Ketikkan di sini..."
+                                size_hint: (1, 1)
+                                font_size: "12sp"
+                                font_name: "Poppins-Regular"
+                                foreground_color: (0.1, 0.2, 0.4, 1)
+                                background_color: (0, 0, 0, 0)
+                                cursor_color: (0.1, 0.2, 0.4, 1)
+                                multiline: True
+                                padding: [dp(5), dp(5)]
+                                halign: 'left'
+                                valign: 'top'
+                                on_focus: root.update_text(self, self.focus, "Ketikkan di sini...")
+                
+                MDCard:
+                    style: "elevated"
+                    size_hint: .98, None
+                    height: dp(250)
+                    theme_shadow_color: "Custom"
+                    shadow_color: 0.086, 0.098, 0.145, 0.5
+                    theme_shadow_offset: "Custom"
+                    shadow_offset: (-1, -2)
+                    theme_shadow_softness: "Custom"
+                    shadow_softness: 2
+                    theme_elevation_level: "Custom"
+                    elevation_level: 1
+                    theme_bg_color: "Custom"
+                    radius: [15,]
+                    md_bg_color: (1, 1, 1, 1)
+                    padding: [dp(15),]
+                    orientation: "horizontal"
+                    focus_color: (0, 0, 0, 0)
+                    RelativeLayout:
+                        MDFloatLayout:
+                            id: map_container
+                            size_hint: 1, .8
+                            md_bg_color: 0, 0, 0, 1
+                            pos_hint: {"center_x": 0.5, "bottom": 1}
+                        MDFabButton:
+                            id: gps_btn
+                            icon: "crosshairs-gps"
+                            theme_icon_color: "Custom"
+                            icon_color: 0.1, 0.2, 0.4, 1
+                            theme_bg_color: "Custom"
+                            md_bg_color: 1, 1, 1, 0.9
+                            theme_font_size: "Custom"
+                            font_size: "25sp"
+                            pos_hint: {"center_x": 0.105  , "center_y": 0.695}
+                            theme_shadow_color: "Custom"
+                            shadow_color: 0, 0, 0, 0
+                            radius: 10
+                            size_hint: None, None
+                            size: dp(40), dp(32)
+                            on_release: 
+                                root.mapview.on_button_pressed()
+                                root.recenter_map()
+                        MDLabel:
+                            text: "Pilih Lokasi di Map"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.955}
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.2, 0.4, 1
+                            theme_font_size: "Custom"
+                            font_size: "16sp"
+                            halign: "center"
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-Bold"
+                        MDLabel:
+                            text: "Geser pin untuk mendapatkan lokasi yang lebih akurat."
+                            pos_hint: {"center_x": 0.5, "center_y": 0.865}
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.2, 0.4, 1
+                            theme_font_size: "Custom"
+                            font_size: "10.5sp"
+                            halign: "center"
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-Regular"
+                
+                MDCard:
+                    style: "elevated"
+                    size_hint: .98, None
+                    height: dp(125)
+                    theme_shadow_color: "Custom"
+                    shadow_color: 0.086, 0.098, 0.145, 0.5
+                    theme_shadow_offset: "Custom"
+                    shadow_offset: (-1, -2)
+                    theme_shadow_softness: "Custom"
+                    shadow_softness: 2
+                    theme_elevation_level: "Custom"
+                    elevation_level: 1
+                    theme_bg_color: "Custom"
+                    radius: [15,]
+                    md_bg_color: (1, 1, 1, 1)
+                    padding: [dp(15),]
+                    orientation: "horizontal"
+                    focus_color: (0, 0, 0, 0)
+                    RelativeLayout:
+                        size_hint_x: 0.6
+                        MDLabel:
+                            text: "Pernahkah terjadi kecelakaan di lokasi ini?"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.845}
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.2, 0.4, 1
+                            theme_font_size: "Custom"
+                            font_size: "11.5sp"
+                            halign: "left"
+                            size_hint_x: None
+                            size_hint_y: None
+                            width: dp(165)
+                            line_height: 0.0000000001
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-SemiBold"
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: dp(5)
+                            adaptive_size: True
+                            pos_hint: {"center_x": 0.225, "center_y": 0.435}
+                            MDCheckbox:
+                                id: yes_check
+                                size_hint: None, None
+                                size: dp(5), dp(5)
+                                color_active: (0.1, 0.2, 0.4, 1)
+                                color_inactive: (0.1, 0.2, 0.4, 0.7)
+                                on_active: 
+                                    if self.active: no_check.active = False
+                            MDLabel:
+                                text: "Pernah"
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 0.8)
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                theme_font_size: "Custom"
+                                font_size: "12sp"
+                                size_hint_x: None
+                                adaptive_size: True
+                                shorten: True
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            spacing: dp(5)
+                            adaptive_size: True
+                            pos_hint: {"center_x": 0.35, "center_y": 0.17}
+                            MDCheckbox:
+                                id: no_check
+                                size_hint: None, None
+                                size: dp(5), dp(5)
+                                color_active: (0.1, 0.2, 0.4, 1)
+                                color_inactive: (0.1, 0.2, 0.4, 0.7)
+                                on_active: root.no_check(self, self.active)
+                            MDLabel:
+                                text: "Belum Pernah"
+                                theme_text_color: "Custom"
+                                text_color: (0.1, 0.2, 0.4, 0.8)
+                                theme_font_name: "Custom"
+                                font_name: "Poppins-SemiBold"
+                                theme_font_size: "Custom"
+                                font_size: "12sp"
+                                size_hint_x: None
+                                adaptive_size: True
+                                shorten: True
+                    MDDivider:
+                        orientation: "vertical"
+                        divider_width: dp(1.75)
+                        height: self.parent.height - dp(10)
+                        pos_hint: {"center_y": 0.5}
+                        color: 0.1, 0.2, 0.4, 1
+                        x: self.parent.x + self.parent.padding[0] + self.parent.width * 0.65 - self.width / 2
+                    RelativeLayout:
+                        size_hint_x: 0.4
+                        MDLabel:
+                            text: "Jika pernah, berapa kali?"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.855}
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.2, 0.4, 1
+                            theme_font_size: "Custom"
+                            font_size: "11.5sp"
+                            halign: "center"
+                            size_hint_x: None
+                            size_hint_y: None
+                            width: dp(110)
+                            line_height: 0.00000000001
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-SemiBold"
+                        MDTextField:
+                            id: intensity
+                            mode: "outlined"
+                            text: "--"
+                            size_hint_x: .495
+                            radius: [dp(10),]
+                            pos_hint: {"center_x": .5, "center_y": .27}
+                            theme_text_color: "Custom"
+                            text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                            text_color_focus: (0.1, 0.2, 0.4, 1)
+                            theme_font_name: "Custom"
+                            theme_font_size: "Custom"
+                            font_size: "18.5sp"
+                            halign: "center"
+                            font_name: "Poppins-Bold"
+                            theme_line_color: "Custom"
+                            line_color_normal: (0.1, 0.2, 0.4, 0.85)
+                            line_color_focus: (0.1, 0.2, 0.4, 1)
+                            theme_bg_color: "Custom"
+                            fill_color_normal: (1, 1, 1, 0)
+                            fill_color_focus: (1, 1, 1, 0)
+                            on_focus: 
+                                root.message(); root.update_text(self, self.focus, "--") if yes_check.active else None
+                            on_text: root.message()
+                            readonly: not yes_check.active
+                
+                MDCard:
+                    style: "elevated"
+                    size_hint: .98, None
+                    height: dp(200)
+                    theme_shadow_color: "Custom"
+                    shadow_color: 0.086, 0.098, 0.145, 0.5
+                    theme_shadow_offset: "Custom"
+                    shadow_offset: (-1, -2)
+                    theme_shadow_softness: "Custom"
+                    shadow_softness: 2
+                    theme_elevation_level: "Custom"
+                    elevation_level: 1
+                    theme_bg_color: "Custom"
+                    radius: [15,]
+                    md_bg_color: (1, 1, 1, 1)
+                    padding: [dp(15),]
+                    orientation: "horizontal"
+                    focus_color: (0, 0, 0, 0)
+                    RelativeLayout:
+                        MDLabel:
+                            text: "Tambahkan keterangan/komentar [i](Opsional)[/i]"
+                            markup: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.905}
+                            theme_text_color: "Custom"
+                            text_color: 0.1, 0.2, 0.4, 1
+                            theme_font_size: "Custom"
+                            font_size: "12.5sp"
+                            halign: "left"
+                            theme_font_name: "Custom"
+                            font_name: "Poppins-SemiBold"
+                        MDCard:
+                            id: comment_card
+                            style: "outlined"
+                            size_hint: 1, .75
+                            pos_hint: {"center_x": 0.5, "bottom": 1}
+                            theme_line_color: "Custom"
+                            line_color: (0.1, 0.2, 0.4, 1)
+                            line_width: 1.5
+                            theme_bg_color: "Custom"
+                            radius: [dp(10),]
+                            padding: [dp(12),]
+                            md_bg_color: (1, 1, 1, 0)
+                            focus_color: (0, 0, 0, 0)
+                            clip: True
+                            TextInput:
+                                id: comment
+                                text: "Ketikkan di sini..."
+                                size_hint: (1, 1)
+                                font_size: "12sp"
+                                font_name: "Poppins-Regular"
+                                foreground_color: (0.1, 0.2, 0.4, 1)
+                                background_color: (0, 0, 0, 0)
+                                cursor_color: (0.1, 0.2, 0.4, 1)
+                                multiline: True
+                                padding: [dp(5), dp(5)]
+                                halign: 'left'
+                                valign: 'top'
+                                on_focus: root.update_text(self, self.focus, "Ketikkan di sini...")
+                Widget:
+                    size_hint_y: None
+                    height: dp(10)
+        
+        MDButton:
+            style: "outlined"
+            pos_hint: {"center_x": .225, "center_y": .065}
+            theme_bg_color: "Custom"
+            md_bg_color: (1, 1, 1, 0)
+            theme_line_color: "Custom"
+            line_color: (1, 1, 1, 1)
+            size_hint: None, None
+            size: dp(135), dp(40)
+            line_width: 2
+            radius: dp(20)
+            on_release: app.go_back()
+            MDButtonText:
+                text: "BACK"
+                theme_text_color: "Custom"
+                text_color: (1, 1, 1, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "16sp"
+                font_name: "Poppins-Bold"
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": .75, "center_y": .065}
+            theme_bg_color: "Custom"
+            md_bg_color: (1, 1, 1, 1)
+            size_hint: None, None
+            size: dp(135), dp(40)
+            radius: dp(20)
+            on_release:
+                root.submit()
+            MDButtonText:
+                text: "KIRIM"
+                theme_text_color: "Custom"
+                text_color: (0.1, 0.2, 0.4, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "16sp"
+                font_name: "Poppins-Bold"
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+            

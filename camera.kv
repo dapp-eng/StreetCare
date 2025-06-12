@@ -1,0 +1,86 @@
+<Camera>:
+    name: "camera"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        
+        MDFloatLayout:
+            id: camera_container
+            size_hint: .9, .895
+            theme_bg_color: "Custom"
+            md_bg_color: (0, 0, 0, 1)
+            pos_hint: {"center_x": .5, "top": 1}
+            radius: dp(15)
+            padding: [dp(3),]
+            Image:
+                index: 1
+                source: app.resource_path("assets/iconw.png")
+                size_hint: None, None
+                size: dp(85), dp(85)
+                pos_hint: {"center_x": .165, "center_y": .955}
+            Image:
+                source: app.resource_path("assets/warn.png")
+                size_hint: .5, .5
+                pos_hint: {"center_x": .275, "center_y": .845}
+        
+        Button:
+            size_hint: .9, .895
+            pos_hint: {"center_x": .5, "top": 1}
+            background_color: 0, 0, 0, 0
+            on_release: root.toggle_play()
+
+        MDIconButton:
+            id: play_btn
+            icon: "play"
+            theme_font_size: "Custom"
+            font_size: "72sp"
+            size_hint: None, None
+            size: dp(65), dp(65)
+            theme_text_color: "Custom"
+            text_color: (0.1, 0.2, 0.4, 0.75)
+            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+            opacity: 1
+            on_release: root.toggle_play()
+
+        MDButton:
+            style: "outlined"
+            pos_hint: {"center_x": .225, "center_y": .055}
+            theme_bg_color: "Custom"
+            md_bg_color: (1, 1, 1, 0)
+            theme_line_color: "Custom"
+            line_color: (0.1, 0.2, 0.4, 1)
+            size_hint: None, None
+            size: dp(135), dp(40)
+            line_width: 2
+            radius: dp(20)
+            on_release: app.go_back()
+            MDButtonText:
+                text: "BACK"
+                theme_text_color: "Custom"
+                text_color: (0.1, 0.2, 0.4, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "16sp"
+                font_name: "Poppins-Bold"
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+            
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": .75, "center_y": .055}
+            theme_bg_color: "Custom"
+            md_bg_color: (0.1, 0.2, 0.4, 1)
+            size_hint: None, None
+            size: dp(135), dp(40)
+            radius: dp(20)
+            on_release: app.change_screen("streetreport", "rise")
+            MDButtonText:
+                text: "SIMPAN"
+                theme_text_color: "Custom"
+                text_color: (1, 1, 1, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "16sp"
+                font_name: "Poppins-Bold"
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
+            

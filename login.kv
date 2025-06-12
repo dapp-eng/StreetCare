@@ -1,0 +1,259 @@
+<Login>:
+    name: "login"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+
+        MDIconButton:
+            icon: "arrow-left"
+            theme_font_size: "Custom"
+            font_size: "23.5sp"
+            size_hint: None, None
+            size: dp(45), dp(45)
+            theme_text_color: "Custom"
+            text_color: (0.1, 0.2, 0.4, 1)
+            pos_hint: {"center_x": 0.125, "center_y": 0.94}
+            on_release: app.change_screen("welcome", "fade")
+        
+        MDIconButton:
+            icon: "account-cog"
+            theme_font_size: "Custom"
+            font_size: "26sp"
+            size_hint: None, None
+            size: dp(45), dp(45)
+            theme_text_color: "Custom"
+            text_color: (0.1, 0.2, 0.4, 1)
+            pos_hint: {"center_x": 0.875, "center_y": 0.925}
+            on_release: app.change_screen("adminlog", "rise")
+    
+        MDLabel:
+            text: "Log In"
+            pos_hint: {"center_x": 0.6, "center_y": 0.875}
+            theme_text_color: "Custom"
+            text_color: 0.1, 0.2, 0.4, 1
+            theme_font_size: "Custom"
+            font_size: "28sp"
+            halign: "left"
+            theme_font_name: "Custom"
+            font_name: "Poppins-Bold"
+        MDLabel:
+            text: "Silahkan login untuk melanjutkan!"
+            pos_hint: {"center_x": 0.6, "center_y": 0.825}
+            theme_text_color: "Custom"
+            text_color: 0.1, 0.2, 0.4, 1
+            theme_font_size: "Custom"
+            font_size: "14sp"
+            halign: "left"
+            theme_font_name: "Custom"
+            font_name: "Poppins-Medium"
+
+        MDLabel:
+            text: "Username atau Email"
+            pos_hint: {"center_x": 0.6, "center_y": 0.76}
+            theme_text_color: "Custom"
+            text_color: (0.1, 0.2, 0.4, 1)
+            theme_font_size: "Custom"
+            font_size: "11sp"
+            halign: "left"
+            theme_font_name: "Custom"
+            font_name: "Poppins-SemiBold"
+        MDCard:
+            id: account_card
+            style: "outlined"
+            size_hint: .795, .08
+            pos_hint: {"center_x": 0.5, "center_y": 0.7}
+            theme_line_color: "Custom"
+            line_color: (0.1, 0.2, 0.4, 1)
+            line_width: 1.5
+            theme_bg_color: "Custom"
+            radius: [dp(10),]
+            padding: [dp(12),]
+            md_bg_color: (1, 1, 1, 1)
+            focus_color: (0, 0, 0, 0)
+            clip: True
+            MDIcon:
+                id: account_icon
+                icon: "account"
+                theme_icon_color: "Custom"
+                icon_color: (0.1, 0.2, 0.4, 1)
+                pos_hint: {"center_x": 0.2, "center_y": 0.5}
+            MDTextField:
+                id: account
+                mode: "outlined"
+                text: "Masukkan username/email"
+                size_hint_x: 1
+                radius: [dp(10),]
+                pos_hint: {"center_x": .5, "center_y": .465}
+                theme_text_color: "Custom"
+                text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                text_color_focus: (0.1, 0.2, 0.4, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "13.5sp"
+                font_name: "Poppins-Regular"
+                theme_line_color: "Custom"
+                line_color_normal: (0, 0, 0, 0)
+                line_color_focus: (0, 0, 0, 0)
+                theme_bg_color: "Custom"
+                fill_color_normal: (1, 1, 1, 0)
+                fill_color_focus: (1, 1, 1, 0)
+                on_focus: root.update_text(self, self.focus, "Masukkan username/email")
+                on_text: self.error = False
+        
+        MDLabel:
+            text: "Kata Sandi"
+            pos_hint: {"center_x": 0.6, "center_y": 0.605}
+            theme_text_color: "Custom"
+            text_color: (0.1, 0.2, 0.4, 1)
+            theme_font_size: "Custom"
+            font_size: "11sp"
+            halign: "left"
+            theme_font_name: "Custom"
+            font_name: "Poppins-SemiBold"
+        MDCard:
+            id: passw_card
+            style: "outlined"
+            size_hint: .795, .08
+            pos_hint: {"center_x": 0.5, "center_y": 0.545}
+            theme_line_color: "Custom"
+            line_color: (0.1, 0.2, 0.4, 1)
+            line_width: 1.5
+            theme_bg_color: "Custom"
+            radius: [dp(10),]
+            padding: [dp(13),]
+            md_bg_color: (1, 1, 1, 1)
+            focus_color: (0, 0, 0, 0)
+            clip: True
+            MDIcon:
+                id: passw_icon
+                icon: "key"
+                theme_icon_color: "Custom"
+                icon_color: (0.1, 0.2, 0.4, 1)
+                pos_hint: {"center_x": 0.2, "center_y": 0.5}
+            MDTextField:
+                id: passw
+                mode: "outlined"
+                text: "Masukkan kata sandi"
+                password: False
+                size_hint_x: 1
+                radius: [dp(10),]
+                pos_hint: {"center_x": .5, "center_y": .465}
+                theme_text_color: "Custom"
+                text_color_normal: (0.1, 0.2, 0.4, 0.85)
+                text_color_focus: (0.1, 0.2, 0.4, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "13.5sp"
+                font_name: "Poppins-Regular"
+                theme_line_color: "Custom"
+                line_color_normal: (0, 0, 0, 0)
+                line_color_focus: (0, 0, 0, 0)
+                theme_bg_color: "Custom"
+                fill_color_normal: (1, 1, 1, 0)
+                fill_color_focus: (1, 1, 1, 0)
+                on_focus: root.password_input(self, self.focus, "Masukkan kata sandi", True)
+                on_text: 
+                    root.handle_password(self, "Masukkan kata sandi")
+                    self.error = False
+            MDIconButton:
+                id: show_pass
+                icon: "eye-off"
+                theme_font_size: "Custom"
+                font_size: "23sp"
+                theme_icon_color: "Custom"
+                icon_color: (0.1, 0.2, 0.4, 1)
+                pos_hint: {"center_x": .9, "center_y": .5}
+                on_release: root.show_password()
+        
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: dp(5)
+            adaptive_size: True
+            pos_hint: {"center_x": 0.345, "center_y": 0.465}
+            MDCheckbox:
+                id: login_check
+                size_hint: None, None
+                size: dp(15), dp(15)
+                color_active: (0.1, 0.2, 0.4, 1)
+                color_inactive: (0.1, 0.2, 0.4, 0.7)
+            MDLabel:
+                text: "Simpan Riwayat Login"
+                theme_text_color: "Custom"
+                text_color: (0.1, 0.2, 0.4, 0.8)
+                theme_font_name: "Custom"
+                font_name: "Poppins-SemiBold"
+                theme_font_size: "Custom"
+                font_size: "13sp"
+                size_hint_x: None
+                adaptive_size: True
+                shorten: True
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: dp(3)
+            adaptive_size: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.275}
+            MDLabel:
+                text: "[u]Lupa kata sandi?[/u]"
+                markup: True
+                theme_text_color: "Custom"
+                text_color: (0.1, 0.2, 0.4, 1)
+                theme_font_size: "Custom"
+                font_size: "13sp"
+                size_hint_x: None
+                adaptive_size: True
+                shorten: True
+                theme_font_name: "Custom"
+                font_name: "Poppins-Medium"
+                on_touch_down: 
+                    if self.collide_point(*args[1].pos): app.change_screen("forgot", "fade")
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: dp(3)
+            adaptive_size: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.235}
+            MDLabel:
+                text: "Belum punya akun?"
+                theme_text_color: "Custom"
+                text_color: (0.1, 0.2, 0.4, 1)
+                theme_font_size: "Custom"
+                font_size: "13sp"
+                size_hint_x: None
+                adaptive_size: True
+                shorten: True
+                theme_font_name: "Custom"
+                font_name: "Poppins-Medium"
+            MDLabel:
+                text: "[u]Register[/u]"
+                markup: True
+                theme_text_color: "Custom"
+                text_color: (0.1, 0.2, 0.4, 1)
+                theme_font_size: "Custom"
+                font_size: "13sp"
+                size_hint_x: None
+                adaptive_size: True
+                shorten: True
+                theme_font_name: "Custom"
+                font_name: "Poppins-SemiBold"
+                on_touch_down: 
+                    if self.collide_point(*args[1].pos): app.change_screen("signup", "rise")
+            
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": .5, "center_y": .165}
+            theme_bg_color: "Custom"
+            size_hint_y: None
+            height: dp(47)
+            md_bg_color: (0.1, 0.2, 0.4, 1)
+            radius: dp(20)
+            on_release: root.login()
+            MDButtonText:
+                text: "LOG IN"
+                theme_text_color: "Custom"
+                text_color: (1, 1, 1, 1)
+                theme_font_name: "Custom"
+                theme_font_size: "Custom"
+                font_size: "16sp"
+                padding: [dp(35), 0]
+                font_name: "Poppins-Bold"
+                halign: "center"
+                pos_hint: {"center_x": .5, "center_y": .5}
