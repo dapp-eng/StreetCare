@@ -6,7 +6,9 @@ StreetCare adalah aplikasi pelaporan jalan rusak yang bertujuan membantu masyara
 
 ## 🚧 Status: Dalam Tahap Pengembangan
 
-Saat ini, StreetCare **masih dalam tahap pengembangan**. Aplikasi ini dirancang agar dapat berjalan di berbagai platform, terutama **Android** sebagai target utama. Namun, karena beberapa kendala teknis (terutama terkait integrasi sistem dan izin perangkat), sementara ini **aplikasi hanya dapat dijalankan di perangkat Windows**.
+Saat ini, StreetCare **masih dalam tahap pengembangan**. Aplikasi ini dirancang agar dapat berjalan di berbagai platform, terutama **Android** sebagai target utama. Namun, karena beberapa kendala teknis (terutama terkait integrasi sistem dan izin perangkat), sementara ini **aplikasi hanya dapat dijalankan di perangkat Windows.**
+
+**(NOTE: Untuk menjalankan aplikasi, pastikan seluruh requirements telah terinstall, lalu jalankan pada file 'app.py')**
 
 ---
 
