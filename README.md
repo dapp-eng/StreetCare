@@ -30,7 +30,7 @@ Infrastructure maintenance often suffers from a lack of real-time data and trans
 
 5. Run the application:
    ```bash
-   python main.py
+   python app.py
 
 ## 👤 Contributor
 This project was developed as an individual prototype by:
